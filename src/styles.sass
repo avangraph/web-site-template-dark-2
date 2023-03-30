@@ -1,1 +1,260 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base
+@tailwind components
+@tailwind utilities
+
+$media-sm: 640px
+$media-md: 768px
+$megia-lg: 1024px
+$megia-xl: 1280px
+$megia-2xl: 1536px
+
+$color-background: #252525
+$color-base: #fff
+$color-gray: #ccc
+$color-gray-medium: #777
+$color-stroke: #333
+$color-primary: #fde047
+$font-primary: 'Archivo', sans-serif
+$font-secondary: 'Russo One', sans-serif
+$global-line-height: 1.3em
+
+$section-gap: 4rem
+$section-gap-sm: 6rem
+$section-header-gap: 2.5rem
+$section-header-gap-sm: 4rem
+
+@mixin font-header
+    font-family: $font-secondary
+    line-height: 1.1em
+    letter-spacing: 0.05em
+    font-weight: 400
+    text-align: center
+    text-transform: uppercase
+
+@mixin font-button
+    font-family: $font-primary
+    line-height: 1.3em
+    font-weight: 600
+    text-align: center
+
+:root
+    --background-color: #{$color-background}
+    --base-color: #{$color-base}
+
+html, body, app-root
+    min-height: 100vh
+    background-color: var(--background-color)
+    color: var(--base-color)
+    font-family: $font-primary
+    line-height: $global-line-height
+    font-size: 16px
+
+.wrapper
+    min-height: 100vh
+    display: flex
+    flex-direction: column
+
+.content
+    flex: 1 0 auto
+
+header
+    border-bottom: 1px solid $color-stroke
+    position: relative
+    z-index: 50
+    background-color: var(--background-color)
+
+footer
+    flex: 0 0 auto
+    border-top: 1px solid $color-stroke
+
+.section-cover-header
+    @include font-header
+    color: $color-background
+    font-size: 48px
+
+.section-cover-subheader
+    font-family: $font-primary
+    line-height: $global-line-height
+    color: $color-background
+    font-size: 24px
+    font-weight: 400
+
+.tm-section
+    padding: $section-gap 0
+    @media (min-width: $media-sm)
+        padding: $section-gap-sm 0
+
+.tm-section + .tm-section
+    padding-top: 0
+
+.tm-section-header
+    @include font-header
+    font-size: 36px
+
+.tm-section-content
+    font-size: 18px
+    font-weight: 400
+    line-height: $global-line-height
+    text-align: center
+    color: $color-gray
+    p + p
+        margin-top: 1rem
+
+.tm-section-content-text-large
+    font-size: 24px
+    line-height: $global-line-height
+
+.tm-section-content-text-large + .tm-section-content-text-large
+    margin-top: 0.5rem
+
+.tm-section-header + .tm-section-content
+    margin-top: $section-header-gap
+    @media (min-width: $media-sm)
+        margin-top: $section-header-gap-sm
+
+.tm-button
+    height: 40px
+
+.tm-button-outline
+    border-color: $color-stroke
+
+.tm-container
+    max-width: 960px
+    margin: auto
+    padding: 0 16px
+
+.tm-container-sm
+    max-width: 800px
+
+.tm-animation-fade
+    animation-name: tm-fade
+    animation-duration: 0.8s
+    animation-timing-function: linear
+
+/* Keyframes used by animation classes
+ ========================================================================== */
+/*
+ * Fade
+ */
+
+@keyframes tm-fade
+    0%
+        opacity: 0
+
+    100%
+        opacity: 1
+
+.tm-button
+    @include font-button
+    margin: 0
+    border: 1px solid transparent
+    overflow: visible
+    -webkit-appearance: none
+    border-radius: 0.25rem
+    display: inline-flex
+    justify-content: center
+    align-items: center
+    box-sizing: border-box
+    padding: 0 2rem
+    font-size: 1rem
+    height: 3rem
+    text-decoration: none
+    &:not(:disabled)
+        cursor: pointer
+
+/*
+ * Remove the inner border and padding in Firefox.
+ */
+    &::-moz-focus-inner
+        border: 0
+        padding: 0
+
+/* Hover */
+    &:hover
+  /* 9 */
+        text-decoration: none
+
+/* OnClick + Active */
+/* Style modifiers
+ ========================================================================== */
+/*
+ * Default
+ */
+    &-default
+        background-color: #f8f8f8
+        color: #333
+
+/* Hover */
+    &-default:hover
+        background-color: #ebebeb
+        color: #333
+
+/* OnClick + Active */
+.tm-button-default:active,
+.tm-button-default.tm-active
+    background-color: #dfdfdf
+    color: #333
+
+/*
+ * Primary
+ */
+.tm-button-primary
+    background-color: $color-primary
+    color: $color-background
+
+/* Hover */
+    &:hover
+        background-color: $color-primary
+        color: $color-background
+
+/* OnClick + Active */
+.tm-button-primary:active,
+.tm-button-primary.tm-active
+    background-color: $color-primary
+    color: $color-background
+
+/*
+ * Secondary
+ */
+.tm-button-secondary
+    background-color: #222
+    color: #fff
+
+/* Hover */
+    &:hover
+        background-color: #151515
+        color: #fff
+
+/* OnClick + Active */
+.tm-button-secondary:active,
+.tm-button-secondary.tm-active
+    background-color: #080808
+    color: #fff
+
+/*
+ * Disabled
+ * The same for all style modifiers
+ */
+.tm-button-default:disabled,
+.tm-button-primary:disabled,
+.tm-button-secondary:disabled,
+.tm-button-danger:disabled
+    background-color: $color-gray-medium
+    color: #999
+
+/* Size modifiers
+ ========================================================================== */
+.tm-button-small
+    padding: 0 1rem
+    height: 2rem
+    font-size: 0.875rem
+
+.tm-button-large
+    padding: 0 3rem
+    font-size: 1.25rem
+    height: 4rem
+
+.tm-google-map-container
+    width: 100%
+    height: 400px

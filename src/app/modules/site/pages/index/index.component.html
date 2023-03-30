@@ -1,0 +1,41 @@
+<!-- Section cover -->
+<section class="section-cover bg-rose-400 min-h-[400px] flex justify-center items-center px-4 sm:px-8 py-8 sm:py-16">
+    <div class="text-center max-w-xl">
+      <h1 class="section-cover-header">PET GROOMING</h1>
+      <h2 class="section-cover-subheader mt-4">Serving The Woodlands, Tomball, Magnolia, Spring, Conroe, Willis, and Montgomery</h2>
+    </div>
+  </section>
+  <!-- .Section cover -->
+  
+  <!-- Section works -->
+  <section class="tm-section">
+    <div class="tm-container tm-container-sm">
+      <h2 class="tm-section-header">Our works</h2>
+      <div class="tm-section-content">
+        <div class="grid grid-cols-2 gap-4" uk-scrollspy="target: > div; cls: tm-animation-fade; delay: 50">
+          <!-- <div>
+            <img class="object-cover h-full" src="./assets/1000_F_483426068_1u13MYpRAocFgI7u0ij4ujqgg2AePqxf.jpg">
+          </div> -->
+          <div *ngFor="let pageWork of pageWorks" class="aspect-[3/2] bg-slate-400">
+            <img class="object-cover aspect-[3/2]" src="./assets/images/{{pageWork.image}}">
+          </div>
+        </div>
+      </div>
+      <div class="mt-10 text-center">
+        <button class="tm-button tm-button-primary" (click)="loadNextWorks()" [disabled]="!works.length">More works...</button> 
+      </div>
+    </div>
+  </section>
+  <!-- .Section works -->
+  
+  <!-- Section contacts -->
+  <section class="tm-section pt-0">
+    <div class="tm-container">
+      <h2 class="tm-section-header">Contact Us</h2>
+      <div class="tm-section-content">
+        <div class="tm-section-content-text-large">(574) 269-7511</div>
+        <div class="tm-section-content-text-large">640 W 300N Warsaw, IN 46582</div>
+      </div>
+    </div>
+  </section>
+  <!-- .Section contacts -->
