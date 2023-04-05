@@ -7,6 +7,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { IndexComponent } from './pages/index/index.component';
 import { SharedModule } from "../../shared/shared.module";
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { SharedModule } from "../../shared/shared.module";
         SiteComponent,
         AboutComponent,
         ContactsComponent,
-        IndexComponent
+        IndexComponent,
+        NotFoundComponent
     ],
     imports: [
         CommonModule,

@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutComponent } from './pages/about/about.component';
-import { ContactsComponent } from './pages/contacts/contacts.component';
 import { IndexComponent } from './pages/index/index.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SiteComponent } from './site.component';
 
 const routes: Routes = [
@@ -11,8 +10,10 @@ const routes: Routes = [
     component: SiteComponent,
     children: [
       { path: "", component: IndexComponent },
-      { path: "contacts", component: ContactsComponent },
-      { path: "about", component: AboutComponent },
+      { path: ":param", component: IndexComponent },
+      { path: ":lang/:alias", component: IndexComponent },
+      // { path: ":param", component: IndexComponent },
+      // { path: "about", component: AboutComponent },
     //   { path: "terms-of-use", component: TermsOfUseComponent },
     //   { path: "privacy-policy", component: PrivacyPolicyComponent },
     ]

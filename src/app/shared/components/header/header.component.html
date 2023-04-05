@@ -33,7 +33,7 @@
                 </a>
             </div>
             <div>
-                <button class="nav-icon" [ngClass]="{'open': isMenuOpen}" (click)="openMenu()">
+                <button class="nav-icon" aria-label="Menu Button" [ngClass]="{'open': isMenuOpen}" (click)="openMenu()">
                     <span></span>
                     <span></span>
                 </button>
@@ -45,15 +45,20 @@
     <div class="tm-container">
         <nav>
             <ul class="header-menu-list">
-                <li class="header-menu-list-ilem">
-                    <a class="header-menu-list-item-link" routerLink="" (click)="closeMenu()">Home</a>
+                <ng-container *ngFor="let page of siteData?.pages">
+                    <li *ngIf="page.title" class="header-menu-list-ilem">
+                        <a class="header-menu-list-item-link" [routerLink]="((activeLang !== siteData.setting.default_lang) ? (activeLang + '/') : '') + page.alias" (click)="closeMenu()">{{page.title}}</a>
+                    </li>
+                </ng-container>
+                <!-- <li class="header-menu-list-ilem">
+                    <a class="header-menu-list-item-link" routerLink="" (click)="closeMenu()">About</a>
                 </li>
                 <li class="header-menu-list-ilem">
                     <a class="header-menu-list-item-link" routerLink="about" (click)="closeMenu()">About</a>
                 </li>
                 <li class="header-menu-list-ilem">
                     <a class="header-menu-list-item-link" routerLink="contacts" (click)="closeMenu()">Contacts</a>
-                </li>
+                </li> -->
             </ul>
         </nav>
     </div> 

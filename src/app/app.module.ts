@@ -7,10 +7,12 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { SharedModule } from "./shared/shared.module";
 import { CommonModule } from '@angular/common';
 import { SiteModule } from './modules/site/site.module';
+import { LangPipe } from './pipes/lang.pipe';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        LangPipe
     ],
     providers: [],
     bootstrap: [AppComponent],
