@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 })
 export class UserLangService implements OnInit {
 
-  public lang$ =  new Subject();
+  public lang$ = new Subject();
 
   constructor() { }
 

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SiteService } from 'src/app/services/site.service';
 import { UserLangService } from 'src/app/services/user-lang.service';
 import { Location } from '@angular/common';
+import { environment } from 'src/environments/environment';
 
 let apiLoaded = false;
 
@@ -22,6 +23,7 @@ export class IndexComponent implements OnInit {
     private location: Location,
   ) { }
 
+  apiUrl = environment.apiUrl;
   lang = '';
 
   data: any;

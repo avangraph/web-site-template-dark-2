@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, shareReplay, Subject } from 'rxjs';
+import { Observable, shareReplay, Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -17,15 +18,15 @@ export class SiteService {
 
   private cachedData$!: Observable<any>;
 
-  public siteData$ =  new Subject();
+  public siteData$ = new Subject();
 
   constructor(private http: HttpClient) {
   }
 
   getData(url: any): Observable<any> {
-    if(!this.cachedData$) {
+    if (!this.cachedData$) {
       this.params = this.params.set('url', url);
-      this.cachedData$ = this.http.get<any>('http://localhost:8080/site', { headers: this.headers, params: this.params, observe: 'response', responseType: 'json' }).pipe(
+      this.cachedData$ = this.http.get<any>(environment.apiUrl + '/site', { headers: this.headers, params: this.params, observe: 'response', responseType: 'json' }).pipe(
         // map((response: any) => response.data),
         shareReplay(1)
       );
@@ -34,7 +35,7 @@ export class SiteService {
   }
 
   setSiteData(data: any): void {
-    this.siteData$.next({...data});
+    this.siteData$.next({ ...data });
   }
-  
+
 }

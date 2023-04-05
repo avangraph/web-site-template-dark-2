@@ -51,6 +51,9 @@
                     </li>
                 </ng-container>
                 <!-- <li class="header-menu-list-ilem">
+                    <a *ngFor="let langIlem of siteData?.langues" class="header-menu-list-item-link" [routerLink]="((activeLang !== siteData.setting.default_lang) ? (activeLang + '/') : '') + page.alias" (click)="closeMenu()">{{page.title}}</a>
+                </li> -->
+                <!-- <li class="header-menu-list-ilem">
                     <a class="header-menu-list-item-link" routerLink="" (click)="closeMenu()">About</a>
                 </li>
                 <li class="header-menu-list-ilem">
