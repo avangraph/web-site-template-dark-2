@@ -25,8 +25,7 @@ export class SiteService {
 
   getData(url: any): Observable<any> {
     if (!this.cachedData$) {
-      this.params = this.params.set('url', url);
-      this.cachedData$ = this.http.get<any>(environment.apiUrl + '/site', { headers: this.headers, params: this.params, observe: 'response', responseType: 'json' }).pipe(
+      this.cachedData$ = this.http.get<any>(environment.apiUrl + '/sites/' + url, { headers: this.headers, params: this.params, observe: 'response', responseType: 'json' }).pipe(
         // map((response: any) => response.data),
         shareReplay(1)
       );

@@ -23,7 +23,7 @@ export class IndexComponent implements OnInit {
     private location: Location,
   ) { }
 
-  apiUrl = environment.apiUrl;
+  imagesUrl = environment.imagesUrl;
   lang = '';
 
   data: any;
