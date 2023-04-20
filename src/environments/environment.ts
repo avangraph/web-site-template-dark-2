@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://avangraph-cloud-web-rest-api.herokuapp.com/api/v1',
-  imagesUrl: 'https://avangraph-cloud-web-rest-api.herokuapp.com/static/images',
+  apiUrl: 'https://acw-rest.onrender.com/api/v1',
+  imagesUrl: 'https://acw-rest.onrender.com/static/images',
 };
 
 /*
