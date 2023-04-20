@@ -12,6 +12,31 @@
       </section>
       <!-- .Section {{section.type}} -->
     </ng-container>
+    <ng-container *ngSwitchCase="'gallery'">
+      <!-- Section {{section.type}} -->
+      <section class="tm-section pt-0">
+        <div class="tm-container">
+          <ng-container *ngFor="let item of section?.items" [ngSwitch]="item.type">
+            <!-- Section Header -->
+            <h2 *ngSwitchCase="'header'" class="tm-section-header">{{item.content}}</h2>
+            <!-- .Section Header -->
+            <!-- Section grid -->
+            <div class="tm-section-paragraph">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" uk-scrollspy="target: > div; cls: tm-animation-fade; delay: 50">
+                <div *ngFor="let pageWork of item.content" class="relative aspect-[4/3] sm:aspect-[3/2] bg-slate-400">
+                  <img class="object-cover aspect-[4/3] sm:aspect-[3/2]" src="{{imagesUrl}}//tr:n-acw_blog/{{data._id}}/{{pageWork.image}}">
+                  <!-- <div class="absolute left-4 bottom-4 text-black">
+                    {{pageWork.title}}
+                  </div> -->
+                </div>
+              </div>
+            </div>
+            <!-- .Section grid -->
+          </ng-container>
+        </div>
+      </section>
+      <!-- .Section {{section.type}} -->
+    </ng-container>
     <ng-container *ngSwitchCase="'blog-1'">
       <!-- Section {{section.type}} -->
       <section class="tm-section pt-0">
@@ -26,7 +51,7 @@
             <!-- Section image -->
             <div *ngSwitchCase="'image'" class="tm-section-media">
               <figure>
-                <img src="{{imagesUrl}}/site/{{data._id}}/original/{{item.filename}}" alt="Elephant at sunset" height="{{item.h}}" width="{{item.w}}">
+                <img src="{{imagesUrl}}//tr:n-acw_blog/{{data._id}}/{{item.filename}}" alt="Elephant at sunset" height="{{item.h}}" width="{{item.w}}">
               </figure>
             </div>
             <!-- .Section image -->

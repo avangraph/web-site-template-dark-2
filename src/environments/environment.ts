@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiUrl: 'https://acw-rest.onrender.com/api/v1',
-  imagesUrl: 'https://acw-rest.onrender.com/static/images',
+  imagesUrl: 'https://ik.imagekit.io/dk2qinybhy/acw/sites',
 };
 
 /*
