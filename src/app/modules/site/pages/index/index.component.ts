@@ -5,6 +5,7 @@ import { UserLangService } from 'src/app/services/user-lang.service';
 import { Location } from '@angular/common';
 import { environment } from 'src/environments/environment';
 
+
 let apiLoaded = false;
 
 @Component({
@@ -29,6 +30,7 @@ export class IndexComponent implements OnInit {
   data: any;
   page: any;
   alias!: string;
+  items = [];
 
   ngOnInit(): void {
 

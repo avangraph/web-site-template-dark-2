@@ -1,0 +1,9 @@
+<swiper-container
+  #swiperRef
+  init="false"
+>
+
+  <swiper-slide *ngFor="let item of items">
+    <img src="{{imagesUrl}}/tr:n-acw_blog{{item.path}}" alt="">
+  </swiper-slide>
+</swiper-container>

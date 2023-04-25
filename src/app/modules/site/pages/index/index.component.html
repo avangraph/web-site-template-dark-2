@@ -30,6 +30,11 @@
               </figure>
             </div>
             <!-- .Section image -->
+            <!-- Section slider -->
+            <div *ngSwitchCase="'slider'" class="tm-section-media">
+              <app-slider [items]="sectionItem.items"></app-slider>
+            </div>
+            <!-- .Section slider -->
             <!-- Section youtube -->
             <div *ngSwitchCase="'youtube'" class="tm-section-media">
               <!-- <youtube-player class="w-full aspect-[16/9]" videoId="{{item.videoId}}"></youtube-player> -->
@@ -69,6 +74,8 @@
     </ng-container>
   </ng-container>
 </ng-container>
+
+
 
 <!-- Section cover -->
 <!-- <section class="section-cover bg-rose-400 min-h-[400px] flex justify-center items-center px-4 sm:px-8 py-8 sm:py-16">
