@@ -135,6 +135,28 @@ footer
     @media (min-width: $media-sm)
         margin-top: 2rem
 
+
+.tm-section-header + .tm-section-media
+    margin-top: $section-header-gap
+    @media (min-width: $media-sm)
+        margin-top: $section-header-gap-sm
+        
+.tm-section-gallery-card-title
+    @include font-header
+    font-size: 18px
+    line-height: $global-line-height
+    color: $color-base
+    text-align: left
+
+.tm-section-gallery-card-description
+    @include font-text
+    font-size: 16px
+    line-height: $global-line-height
+    color: $color-base
+
+.tm-section-gallery-card-media + *
+    margin-top: 1rem
+
 .tm-button
     height: 40px
 

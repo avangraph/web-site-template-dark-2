@@ -4,34 +4,9 @@
       <!-- Section {{section.type}} -->
       <section class="section-cover bg-rose-400 min-h-[400px] flex justify-center items-center px-4 sm:px-8 py-8 sm:py-16">
         <div class="text-center max-w-xl">
-          <ng-container *ngFor="let item of section?.items" [ngSwitch]="item.type">
-            <h1 *ngSwitchCase="'header'" class="section-cover-header">{{item.content}}</h1>
-            <h2 *ngSwitchCase="'paragraph'" class="section-cover-subheader mt-4">{{item.content}}</h2>
-          </ng-container>
-        </div>
-      </section>
-      <!-- .Section {{section.type}} -->
-    </ng-container>
-    <ng-container *ngSwitchCase="'gallery'">
-      <!-- Section {{section.type}} -->
-      <section class="tm-section pt-0">
-        <div class="tm-container">
-          <ng-container *ngFor="let item of section?.items" [ngSwitch]="item.type">
-            <!-- Section Header -->
-            <h2 *ngSwitchCase="'header'" class="tm-section-header">{{item.content}}</h2>
-            <!-- .Section Header -->
-            <!-- Section grid -->
-            <div class="tm-section-paragraph">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" uk-scrollspy="target: > div; cls: tm-animation-fade; delay: 50">
-                <div *ngFor="let pageWork of item.content" class="relative aspect-[4/3] sm:aspect-[3/2] bg-slate-400">
-                  <img class="object-cover aspect-[4/3] sm:aspect-[3/2]" src="{{imagesUrl}}//tr:n-acw_blog/{{data._id}}/{{pageWork.image}}">
-                  <!-- <div class="absolute left-4 bottom-4 text-black">
-                    {{pageWork.title}}
-                  </div> -->
-                </div>
-              </div>
-            </div>
-            <!-- .Section grid -->
+          <ng-container *ngFor="let sectionItem of section?.items" [ngSwitch]="sectionItem.type">
+            <h1 *ngSwitchCase="'header'" class="section-cover-header">{{sectionItem.content}}</h1>
+            <h2 *ngSwitchCase="'paragraph'" class="section-cover-subheader mt-4">{{sectionItem.content}}</h2>
           </ng-container>
         </div>
       </section>
@@ -41,17 +16,17 @@
       <!-- Section {{section.type}} -->
       <section class="tm-section pt-0">
         <div class="tm-container">
-          <ng-container *ngFor="let item of section?.items" [ngSwitch]="item.type">
+          <ng-container *ngFor="let sectionItem of section?.items" [ngSwitch]="sectionItem.type">
             <!-- Section Header -->
-            <h2 *ngSwitchCase="'header'" class="tm-section-header">{{item.content}}</h2>
+            <h2 *ngSwitchCase="'header'" class="tm-section-header">{{sectionItem.content}}</h2>
             <!-- .Section Header -->
             <!-- Section paragraph -->
-            <p *ngSwitchCase="'paragraph'" class="tm-section-paragraph">{{item.content}}</p>
+            <p *ngSwitchCase="'paragraph'" class="tm-section-paragraph">{{sectionItem.content}}</p>
             <!-- .Section paragraph -->
             <!-- Section image -->
             <div *ngSwitchCase="'image'" class="tm-section-media">
               <figure>
-                <img src="{{imagesUrl}}//tr:n-acw_blog/{{data._id}}/{{item.filename}}" alt="Elephant at sunset" height="{{item.h}}" width="{{item.w}}">
+                <img src="{{imagesUrl}}/tr:n-acw_blog{{sectionItem.path}}" alt="Elephant at sunset" height="{{sectionItem.h}}" width="{{sectionItem.w}}">
               </figure>
             </div>
             <!-- .Section image -->
@@ -60,6 +35,24 @@
               <!-- <youtube-player class="w-full aspect-[16/9]" videoId="{{item.videoId}}"></youtube-player> -->
             </div>
             <!-- .Section youtube -->
+            <!-- Section gallery -->
+            <div *ngSwitchCase="'gallery'" class="tm-section-media">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-6" uk-scrollspy="target: > div; cls: tm-animation-fade; delay: 50">
+                <div *ngFor="let galleryItem of sectionItem.items" class="tm-section-gallery-card">
+                  <div class="tm-section-gallery-card-media aspect-[4/3] sm:aspect-[3/2]">
+                    <img class="object-cover aspect-[4/3] sm:aspect-[3/2]" src="{{imagesUrl}}/tr:n-acw_blog/acw/sites/642aa8800168276283572d4d/dd23d3d9-aadc-4c29-91b8-cfb89d970845_EJK8HgI1uJ" >
+                    <!-- <img class="object-cover aspect-[4/3] sm:aspect-[3/2]" src="{{imagesUrl}}/tr:n-acw_blog{{galleryItem.image}}" > -->
+                  </div>
+                  <div class="tm-section-gallery-card-title">
+                    {{galleryItem.title}}
+                  </div>
+                  <div class="tm-section-gallery-card-description">
+                    {{galleryItem.title}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- .Section gallery -->
           </ng-container>
         </div>
       </section>
