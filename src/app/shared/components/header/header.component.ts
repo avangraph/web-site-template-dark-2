@@ -23,7 +23,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.userLangService.lang$.subscribe({
       next: (lang: any) => {
-        console.log(lang);
         this.activeLang = lang;
       }
     });
