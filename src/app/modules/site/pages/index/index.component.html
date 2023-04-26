@@ -45,19 +45,34 @@
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-6" uk-scrollspy="target: > div; cls: tm-animation-fade; delay: 50">
                 <div *ngFor="let galleryItem of sectionItem.items" class="tm-section-gallery-card">
                   <div class="tm-section-gallery-card-media aspect-[4/3] sm:aspect-[3/2]">
-                    <img class="object-cover aspect-[4/3] sm:aspect-[3/2]" src="{{imagesUrl}}/tr:n-acw_blog/acw/sites/642aa8800168276283572d4d/dd23d3d9-aadc-4c29-91b8-cfb89d970845_EJK8HgI1uJ" >
-                    <!-- <img class="object-cover aspect-[4/3] sm:aspect-[3/2]" src="{{imagesUrl}}/tr:n-acw_blog{{galleryItem.image}}" > -->
+                    <!-- <img class="object-cover aspect-[4/3] sm:aspect-[3/2]" src="{{imagesUrl}}/tr:n-acw_blog/acw/sites/642aa8800168276283572d4d/dd23d3d9-aadc-4c29-91b8-cfb89d970845_EJK8HgI1uJ" > -->
+                    <img class="object-cover aspect-[4/3] sm:aspect-[3/2]" src="{{imagesUrl}}/tr:n-acw_gallery{{galleryItem.image}}" >
                   </div>
                   <div class="tm-section-gallery-card-title">
                     {{galleryItem.title}}
                   </div>
                   <div class="tm-section-gallery-card-description">
-                    {{galleryItem.title}}
+                    {{galleryItem.description}}
                   </div>
                 </div>
               </div>
             </div>
             <!-- .Section gallery -->
+            <!-- Section accordion -->
+            <div *ngSwitchCase="'accordion'" class="tm-section-media">
+              <div class="">
+                <ul uk-accordion class="tm-accordion">
+                    <li *ngFor="let accordionItem of sectionItem.items" class="tm-accordion-item">
+                        <a class="uk-accordion-title tm-accordion-item-title" href="#">
+                          <span class="tm-accordion-item-title-text">{{accordionItem.title}}</span>
+                          <span class="tm-accordion-item-title-icon"></span>
+                        </a>
+                        <div class="uk-accordion-content tm-accordion-item-description">{{accordionItem.description}}</div>
+                    </li>
+                </ul>
+              </div>
+            </div>
+            <!-- .Section accordion -->
           </ng-container>
         </div>
       </section>

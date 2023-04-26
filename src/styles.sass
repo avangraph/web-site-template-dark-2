@@ -24,6 +24,10 @@ $section-gap-sm: 6rem
 $section-header-gap: 2.5rem
 $section-header-gap-sm: 4rem
 
+$accordion-icon-closed: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-plus'%3E%3Cline x1='12' y1='5' x2='12' y2='19'/%3E%3Cline x1='5' y1='12' x2='19' y2='12'/%3E%3C/svg%3E") no-repeat 50% 50%
+
+$accordion-icon-opened: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-minus'%3E%3Cline x1='5' y1='12' x2='19' y2='12'/%3E%3C/svg%3E") no-repeat 50% 50%
+
 @mixin font-header
     font-family: $font-secondary
     line-height: 1.1em
@@ -47,12 +51,16 @@ $section-header-gap-sm: 4rem
 
 :root
     --background-color: #{$color-background}
-    --base-color: #{$color-base}
+    --color-base: #{$color-base}
+    --color-gray: #{$color-gray}
+    --color-stroke: #{$color-stroke}
+    --accordion-icon-closed: #{$accordion-icon-closed}
+    --accordion-icon-opened: #{$accordion-icon-opened}
 
 html, body, app-root
     min-height: 100vh
     background-color: var(--background-color)
-    color: var(--base-color)
+    color: var(--color-base)
     font-family: $font-primary
     line-height: $global-line-height
     font-size: 16px
@@ -308,3 +316,46 @@ youtube-player
     iframe
         width: 100%
         height: 100%
+
+.tm-accordion
+    display: flex
+    flex-direction: column
+    margin: auto
+    max-width: 800px
+    &-item
+        padding: 16px 0
+        &-title
+            display: flex
+            align-items: center
+            &-text
+                @include font-header
+                display: block
+                color: var(--color-base)
+                font-size: 18px
+                flex: 1
+                text-align: left
+                display: flex
+                align-items: center
+            &-icon
+                display: block
+                content: ''
+                width: 24px
+                height: 24px
+                margin-left: 16px
+                -webkit-mask: var(--accordion-icon-closed)
+                mask: var(--accordion-icon-closed)
+                -webkit-mask-size: cover
+                mask-size: cover
+                background-color: var(--color-base)
+        &-description
+            @include font-text
+            color: var(--color-gray)
+            font-size: 18px
+            margin-top: 0.5rem
+    &-item.uk-open
+        &-title
+            &-icon
+                -webkit-mask: var(--accordion-icon-opened)
+                mask: var(--accordion-icon-opened)
+    &-item + &-item
+        border-top: 1px solid var(--color-stroke)
