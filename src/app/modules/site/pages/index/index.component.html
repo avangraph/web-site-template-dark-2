@@ -1,105 +1,110 @@
-<ng-container *ngFor="let section of page?.sections">
-  <ng-container [ngSwitch]="section.type">
-    <ng-container *ngSwitchCase="'cover-1'">
-      <!-- Section {{section.type}} -->
-      <section
-        class="section-cover bg-rose-400 min-h-[400px] flex justify-center items-center px-4 sm:px-8 py-8 sm:py-16">
-        <div class="text-center max-w-xl">
-          <ng-container *ngFor="let sectionItem of section?.items" [ngSwitch]="sectionItem.type">
-            <h1 *ngSwitchCase="'header'" class="section-cover-header">{{sectionItem.content}}</h1>
-            <h2 *ngSwitchCase="'paragraph'" class="section-cover-subheader mt-4">{{sectionItem.content}}</h2>
-          </ng-container>
-        </div>
-      </section>
-      <!-- .Section {{section.type}} -->
-    </ng-container>
-    <ng-container *ngSwitchCase="'cover-2'">
-      <!-- Section {{section.type}} -->
-      <app-cover2 [section]="section"></app-cover2>
-      <!-- .Section {{section.type}} -->
-    </ng-container>
-    <ng-container *ngSwitchCase="'blog-1'">
-      <!-- Section {{section.type}} -->
-      <section class="tm-section pt-0">
-        <div class="tm-container">
-          <ng-container *ngFor="let sectionItem of section?.items" [ngSwitch]="sectionItem.type">
-            <!-- Section Header -->
-            <h2 *ngSwitchCase="'header'" class="tm-section-header">{{sectionItem.content}}</h2>
-            <!-- .Section Header -->
-            <!-- Section paragraph -->
-            <p *ngSwitchCase="'paragraph'" class="tm-section-paragraph">{{sectionItem.content}}</p>
-            <!-- .Section paragraph -->
-            <!-- Section image -->
-            <div *ngSwitchCase="'image'" class="tm-section-media">
-              <figure>
-                <img src="{{imagesUrl}}/tr:n-acw_blog{{sectionItem.path}}" alt="Elephant at sunset"
-                  height="{{sectionItem.h}}" width="{{sectionItem.w}}">
-              </figure>
-            </div>
-            <!-- .Section image -->
-            <!-- Section slider -->
-            <div *ngSwitchCase="'slider'" class="tm-section-media">
-              <app-slider [items]="sectionItem.items"></app-slider>
-            </div>
-            <!-- .Section slider -->
-            <!-- Section youtube -->
-            <div *ngSwitchCase="'youtube'" class="tm-section-media">
-              <youtube-player class="w-full aspect-[16/9]" videoId="{{sectionItem.videoId}}"></youtube-player>
-            </div>
-            <!-- .Section youtube -->
-            <!-- Section gallery -->
-            <div *ngSwitchCase="'gallery'" class="tm-section-media">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-6"
-                uk-scrollspy="target: > div; cls: tm-animation-fade; delay: 50">
-                <div *ngFor="let galleryItem of sectionItem.items" class="tm-section-gallery-card">
-                  <div class="tm-section-gallery-card-media aspect-[4/3] sm:aspect-[3/2]">
-                    <!-- <img class="object-cover aspect-[4/3] sm:aspect-[3/2]" src="{{imagesUrl}}/tr:n-acw_blog/acw/sites/642aa8800168276283572d4d/dd23d3d9-aadc-4c29-91b8-cfb89d970845_EJK8HgI1uJ" > -->
-                    <img class="object-cover aspect-[4/3] sm:aspect-[3/2]"
-                      src="{{imagesUrl}}/tr:n-acw_gallery{{galleryItem.image}}">
-                  </div>
-                  <div class="tm-section-gallery-card-title">
-                    {{galleryItem.title}}
-                  </div>
-                  <div class="tm-section-gallery-card-description">
-                    {{galleryItem.description}}
+<div *ngIf="isLoad">
+  <app-page-loader></app-page-loader>
+</div>
+<ng-container *ngIf="!isLoad">
+  <ng-container *ngFor="let section of page?.sections">
+    <ng-container [ngSwitch]="section.type">
+      <ng-container *ngSwitchCase="'cover-1'">
+        <!-- Section {{section.type}} -->
+        <section
+          class="section-cover bg-rose-400 min-h-[400px] flex justify-center items-center px-4 sm:px-8 py-8 sm:py-16">
+          <div class="text-center max-w-xl">
+            <ng-container *ngFor="let sectionItem of section?.items" [ngSwitch]="sectionItem.type">
+              <h1 *ngSwitchCase="'header'" class="section-cover-header">{{sectionItem.content}}</h1>
+              <h2 *ngSwitchCase="'paragraph'" class="section-cover-subheader mt-4">{{sectionItem.content}}</h2>
+            </ng-container>
+          </div>
+        </section>
+        <!-- .Section {{section.type}} -->
+      </ng-container>
+      <ng-container *ngSwitchCase="'cover-2'">
+        <!-- Section {{section.type}} -->
+        <app-cover2 [section]="section"></app-cover2>
+        <!-- .Section {{section.type}} -->
+      </ng-container>
+      <ng-container *ngSwitchCase="'blog-1'">
+        <!-- Section {{section.type}} -->
+        <section class="tm-section pt-0">
+          <div class="tm-container">
+            <ng-container *ngFor="let sectionItem of section?.items" [ngSwitch]="sectionItem.type">
+              <!-- Section Header -->
+              <h2 *ngSwitchCase="'header'" class="tm-section-header">{{sectionItem.content}}</h2>
+              <!-- .Section Header -->
+              <!-- Section paragraph -->
+              <p *ngSwitchCase="'paragraph'" class="tm-section-paragraph">{{sectionItem.content}}</p>
+              <!-- .Section paragraph -->
+              <!-- Section image -->
+              <div *ngSwitchCase="'image'" class="tm-section-media">
+                <figure>
+                  <img src="{{imagesUrl}}/tr:n-acw_blog{{sectionItem.path}}" alt="Elephant at sunset"
+                    height="{{sectionItem.h}}" width="{{sectionItem.w}}">
+                </figure>
+              </div>
+              <!-- .Section image -->
+              <!-- Section slider -->
+              <div *ngSwitchCase="'slider'" class="tm-section-media">
+                <app-slider [items]="sectionItem.items"></app-slider>
+              </div>
+              <!-- .Section slider -->
+              <!-- Section youtube -->
+              <div *ngSwitchCase="'youtube'" class="tm-section-media">
+                <youtube-player class="w-full aspect-[16/9]" videoId="{{sectionItem.videoId}}"></youtube-player>
+              </div>
+              <!-- .Section youtube -->
+              <!-- Section gallery -->
+              <div *ngSwitchCase="'gallery'" class="tm-section-media">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-6"
+                  uk-scrollspy="target: > div; cls: tm-animation-fade; delay: 50">
+                  <div *ngFor="let galleryItem of sectionItem.items" class="tm-section-gallery-card">
+                    <div class="tm-section-gallery-card-media aspect-[4/3] sm:aspect-[3/2]">
+                      <!-- <img class="object-cover aspect-[4/3] sm:aspect-[3/2]" src="{{imagesUrl}}/tr:n-acw_blog/acw/sites/642aa8800168276283572d4d/dd23d3d9-aadc-4c29-91b8-cfb89d970845_EJK8HgI1uJ" > -->
+                      <img class="object-cover aspect-[4/3] sm:aspect-[3/2]"
+                        src="{{imagesUrl}}/tr:n-acw_gallery{{galleryItem.image}}">
+                    </div>
+                    <div class="tm-section-gallery-card-title">
+                      {{galleryItem.title}}
+                    </div>
+                    <div class="tm-section-gallery-card-description">
+                      {{galleryItem.description}}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <!-- .Section gallery -->
-            <!-- Section accordion -->
-            <div *ngSwitchCase="'accordion'" class="tm-section-media">
-              <div class="">
-                <ul uk-accordion class="tm-accordion">
-                  <li *ngFor="let accordionItem of sectionItem.items" class="tm-accordion-item">
-                    <a class="uk-accordion-title tm-accordion-item-title" href="#">
-                      <span class="tm-accordion-item-title-text">{{accordionItem.title}}</span>
-                      <span class="tm-accordion-item-title-icon"></span>
-                    </a>
-                    <div class="uk-accordion-content tm-accordion-item-description">{{accordionItem.description}}</div>
-                  </li>
-                </ul>
+              <!-- .Section gallery -->
+              <!-- Section accordion -->
+              <div *ngSwitchCase="'accordion'" class="tm-section-media">
+                <div class="">
+                  <ul uk-accordion class="tm-accordion">
+                    <li *ngFor="let accordionItem of sectionItem.items" class="tm-accordion-item">
+                      <a class="uk-accordion-title tm-accordion-item-title" href="#">
+                        <span class="tm-accordion-item-title-text">{{accordionItem.title}}</span>
+                        <span class="tm-accordion-item-title-icon"></span>
+                      </a>
+                      <div class="uk-accordion-content tm-accordion-item-description">{{accordionItem.description}}</div>
+                    </li>
+                  </ul>
+                </div>
               </div>
-            </div>
-            <!-- .Section accordion -->
-            <!-- Section form -->
-            <div *ngSwitchCase="'form-1'" class="tm-section-media">
-              <app-form [formData]="sectionItem"></app-form>
-            </div>
-            <!-- .Section form -->
-          </ng-container>
-        </div>
-      </section>
-      <!-- .Section {{section.type}} -->
-    </ng-container>
-    <ng-container *ngSwitchCase="'map-1'">
-      <!-- Section {{section.type}} -->
-      <section class="tm-section">
-        <div class="tm-container">
-          <app-google-maps></app-google-maps>
-        </div>
-      </section>
-      <!-- .Section {{section.type}} -->
+              <!-- .Section accordion -->
+              <!-- Section form -->
+              <div *ngSwitchCase="'form-1'" class="tm-section-media">
+                <app-form [formData]="sectionItem"></app-form>
+              </div>
+              <!-- .Section form -->
+            </ng-container>
+          </div>
+        </section>
+        <!-- .Section {{section.type}} -->
+      </ng-container>
+      <ng-container *ngSwitchCase="'map-1'">
+        <!-- Section {{section.type}} -->
+        <section class="tm-section">
+          <div class="tm-container">
+            <app-google-maps></app-google-maps>
+          </div>
+        </section>
+        <!-- .Section {{section.type}} -->
+      </ng-container>
     </ng-container>
   </ng-container>
 </ng-container>

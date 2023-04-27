@@ -6,6 +6,7 @@ import { GoogleMapsComponent } from './components/google-maps/google-maps.compon
 import { AppRoutingModule } from '../app-routing.module';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { YouTubePlayerModule } from '@angular/youtube-player';
+import { PageLoaderComponent } from './components/page-loader/page-loader.component';
 
 
 
@@ -13,7 +14,8 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    GoogleMapsComponent
+    GoogleMapsComponent,
+    PageLoaderComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     HeaderComponent,
     FooterComponent,
     GoogleMapsComponent,
-    YouTubePlayerModule
+    YouTubePlayerModule,
+    PageLoaderComponent
   ]
 })
 export class SharedModule { }

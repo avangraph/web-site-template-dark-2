@@ -32,6 +32,8 @@ export class IndexComponent implements OnInit {
   alias!: string;
   items = [];
 
+  isLoad = false;
+
   ngOnInit(): void {
 
     // let userLang = navigator.language;
@@ -42,6 +44,8 @@ export class IndexComponent implements OnInit {
       document.body.appendChild(tag);
       apiLoaded = true;
     }
+
+    this.isLoad = true;
 
     this.siteService.getData(location.hostname).subscribe({
       next: (response) => {
@@ -168,6 +172,8 @@ export class IndexComponent implements OnInit {
           this.page = this.data.pages.find((e: { alias: string }) => e.alias === this.alias);
 
           this.siteService.setSiteData(this.data);
+
+          this.isLoad = false;
 
           // console.log('data', this.data);
           // this.mathParams(params);
