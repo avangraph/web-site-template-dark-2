@@ -21,8 +21,8 @@ $global-line-height: 1.3em
 
 $section-gap: 4rem
 $section-gap-sm: 6rem
-$section-header-gap: 2.5rem
-$section-header-gap-sm: 4rem
+$section-header-gap: 2rem
+$section-header-gap-sm: 3rem
 
 $accordion-icon-closed: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-plus'%3E%3Cline x1='12' y1='5' x2='12' y2='19'/%3E%3Cline x1='5' y1='12' x2='19' y2='12'/%3E%3C/svg%3E") no-repeat 50% 50%
 
@@ -113,6 +113,13 @@ footer
     @media (min-width: $media-sm)
         font-size: 36px
 
+.tm-section-subheader
+    @include font-header
+    font-size: 20px
+    color: var(--color-base)
+    @media (min-width: $media-sm)
+        font-size: 24px
+
 .tm-section-content
     font-size: 18px
     font-weight: 400
@@ -136,6 +143,16 @@ footer
     margin-top: $section-header-gap
     @media (min-width: $media-sm)
         margin-top: $section-header-gap-sm
+
+.tm-section-subheader + .tm-section-paragraph, .tm-section-paragraph + .tm-section-subheader
+    margin-top: 0.75rem
+    @media (min-width: $media-sm)
+        margin-top: 1.5rem
+
+.tm-section-subheader + .tm-section-subheader
+    margin-top: 0.5rem
+    @media (min-width: $media-sm)
+        margin-top: 1rem
 
 .tm-section-paragraph + .tm-section-paragraph
     margin-top: 0.5rem
