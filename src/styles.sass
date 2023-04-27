@@ -53,6 +53,7 @@ $accordion-icon-opened: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
     --background-color: #{$color-background}
     --color-base: #{$color-base}
     --color-gray: #{$color-gray}
+    --color-gray-medium: #{$color-gray-medium}
     --color-stroke: #{$color-stroke}
     --accordion-icon-closed: #{$accordion-icon-closed}
     --accordion-icon-opened: #{$accordion-icon-opened}
@@ -64,6 +65,9 @@ html, body, app-root
     font-family: $font-primary
     line-height: $global-line-height
     font-size: 16px
+
+svg
+    width: 100%
 
 .wrapper
     min-height: 100vh
@@ -143,12 +147,11 @@ footer
     @media (min-width: $media-sm)
         margin-top: 2rem
 
-
 .tm-section-header + .tm-section-media
     margin-top: $section-header-gap
     @media (min-width: $media-sm)
         margin-top: $section-header-gap-sm
-        
+
 .tm-section-gallery-card-title
     @include font-header
     font-size: 18px
@@ -359,3 +362,136 @@ youtube-player
                 mask: var(--accordion-icon-opened)
     &-item + &-item
         border-top: 1px solid var(--color-stroke)
+
+.tm-form
+    display: flex
+    flex-direction: column
+    gap: 16px
+    max-width: 480px
+    margin: auto
+    position: relative
+    &-loader
+      display: flex
+      justify-content: center
+      align-items: center
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      right: 0
+      background: rgba($color-background, 0.7)
+    &-group
+        display: flex
+        flex-direction: column
+        gap: 8px
+    &-label
+    &-input
+        -webkit-appearance: none
+        max-width: 100%
+        /* 2 */
+        width: 100%
+        /* 3 */
+        border: 0 none
+        /* 4 */
+        padding: 0 16px
+        background: transparent
+        color: var(--color-base)
+        border: 1px solid var(--color-gray-medium)
+        transition: 0.2s ease-in-out
+        transition-property: color, background-color, border
+        height: 40px
+        vertical-align: middle
+        /* 1 */
+        display: inline-block
+        &-danger
+            color: #f0506e
+        &:focus
+            outline: none
+            background-color: transparent
+            color: var(--color-base)
+            border-color: var(--color-base)
+        &:disabled
+            background-color: transparent
+            color: var(--color-base)
+            border-color: var(--color-base)
+        &::placeholder
+            color: var(--color-gray-medium)
+
+.tm-button
+    margin: 0
+    border: none
+    overflow: visible
+    font: inherit
+    color: inherit
+    text-transform: none
+    -webkit-appearance: none
+    border-radius: 0
+    display: inline-block
+    box-sizing: border-box
+    padding: 0 64px
+    vertical-align: middle
+    font-size: 1rem
+    line-height: 40px
+    text-align: center
+    text-decoration: none
+    transition: 0.1s ease-in-out
+    transition-property: color, background-color, border-color
+    &:not(:disabled)
+        cursor: pointer
+    &::-moz-focus-inner
+        border: 0
+        padding: 0
+    &:hover
+        text-decoration: none
+    &-default
+        background-color: transparent
+        color: var(--color-base)
+        border: 1px solid var(--color-base)
+    &-default:hover
+        background-color: transparent
+        color: var(--color-base)
+        border-color: var(--color-base)
+    &-default:active, &-default.uk-active
+        background-color: transparent
+        color: var(--color-base)
+        border-color:var(--color-base)
+    &-default:disabled, &-default:active:disabled
+        background-color: transparent
+        border-color:var(--color-gray-medium)
+        color:var(--color-gray-medium)
+
+.uk-notification
+    position: fixed
+    top: 16px
+    left: 16px
+    z-index: 1040
+    box-sizing: border-box
+    width: 240px
+
+.uk-notification-top-right, .uk-notification-bottom-right
+    left: auto
+    right: 16px
+
+.uk-notification-top-center,
+.uk-notification-bottom-center
+    left: 50%
+    margin-left: -120px
+
+.uk-notification-bottom-left, .uk-notification-bottom-right, .uk-notification-bottom-center
+    top: auto
+    bottom: 16px
+
+.uk-notification-message
+    position: relative
+    padding: 16px
+    background: lighten($color-background, 20%)
+    color: var(--color-base)
+    font-size: 1rem
+    cursor: pointer
+    text-align: center
+
+.uk-notification-close
+    display: none
+    position: absolute
+    top: 20px
+    right: 15px

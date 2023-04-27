@@ -1,0 +1,15 @@
+
+  <form class="tm-form" (ngSubmit)="onSubmitForm()" [formGroup]="form">
+    <div *ngFor="let field of fields" class="tm-form-group">
+      <label *ngIf="field.label" for="formFiled.id" class="tm-form-label">{{field.label}}</label>
+      <input type="text" [id]="field.id" [formControlName]="field.id" class="tm-form-input" [placeholder]="field.placeholder || ''">
+    </div>
+    <div class="flex justify-center mt-8">
+      <button type="submit" class="tm-button tm-button-default tm-button-process" [disabled]="isSend">{{button.label}}</button>
+    </div>
+    <div class="tm-form-loader" *ngIf="isSend">
+      <div class="loader-container">
+        <div class="lds-dual-ring"></div>
+      </div>    
+    </div>
+  </form>

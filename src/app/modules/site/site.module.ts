@@ -9,6 +9,8 @@ import { IndexComponent } from './pages/index/index.component';
 import { SharedModule } from "../../shared/shared.module";
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SliderComponent } from './components/slider/slider.component';
+import { FormComponent } from './components/form/form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,12 +20,14 @@ import { SliderComponent } from './components/slider/slider.component';
         ContactsComponent,
         IndexComponent,
         NotFoundComponent,
-        SliderComponent
+        SliderComponent,
+        FormComponent
     ],
     imports: [
         CommonModule,
         SiteRoutingModule,
-        SharedModule
+        SharedModule,
+        ReactiveFormsModule
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
