@@ -11,6 +11,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { FormComponent } from './components/form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Cover2Component } from './components/cover2/cover2.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
         IndexComponent,
         NotFoundComponent,
         SliderComponent,
-        FormComponent
+        FormComponent,
+        Cover2Component
     ],
     imports: [
         CommonModule,

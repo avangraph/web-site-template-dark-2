@@ -13,6 +13,11 @@
       </section>
       <!-- .Section {{section.type}} -->
     </ng-container>
+    <ng-container *ngSwitchCase="'cover-2'">
+      <!-- Section {{section.type}} -->
+      <app-cover2 [section]="section"></app-cover2>
+      <!-- .Section {{section.type}} -->
+    </ng-container>
     <ng-container *ngSwitchCase="'blog-1'">
       <!-- Section {{section.type}} -->
       <section class="tm-section pt-0">
@@ -39,7 +44,7 @@
             <!-- .Section slider -->
             <!-- Section youtube -->
             <div *ngSwitchCase="'youtube'" class="tm-section-media">
-              <!-- <youtube-player class="w-full aspect-[16/9]" videoId="{{item.videoId}}"></youtube-player> -->
+              <youtube-player class="w-full aspect-[16/9]" videoId="{{sectionItem.videoId}}"></youtube-player>
             </div>
             <!-- .Section youtube -->
             <!-- Section gallery -->

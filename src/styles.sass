@@ -371,15 +371,15 @@ youtube-player
     margin: auto
     position: relative
     &-loader
-      display: flex
-      justify-content: center
-      align-items: center
-      position: absolute
-      top: 0
-      bottom: 0
-      left: 0
-      right: 0
-      background: rgba($color-background, 0.7)
+        display: flex
+        justify-content: center
+        align-items: center
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        background: rgba($color-background, 0.7)
     &-group
         display: flex
         flex-direction: column
@@ -454,11 +454,11 @@ youtube-player
     &-default:active, &-default.uk-active
         background-color: transparent
         color: var(--color-base)
-        border-color:var(--color-base)
+        border-color: var(--color-base)
     &-default:disabled, &-default:active:disabled
         background-color: transparent
-        border-color:var(--color-gray-medium)
-        color:var(--color-gray-medium)
+        border-color: var(--color-gray-medium)
+        color: var(--color-gray-medium)
 
 .uk-notification
     position: fixed
@@ -495,3 +495,32 @@ youtube-player
     position: absolute
     top: 20px
     right: 15px
+
+.section-cover-2
+    position: relative
+    &-panel
+        position: relative
+        z-index: 0
+        max-width: 480px
+        padding: 48px 64px
+        background: rgba($color-background, 0.8)
+        margin-top: auto
+    &-header
+        @include font-header
+        color: var(--color-base)
+        font-size: 36px
+    &-subheader
+        text-align: center
+        font-family: $font-primary
+        line-height: $global-line-height
+        color: var(--color-base)
+        font-size: 18px
+        font-weight: 400
+    &-bottom-gradient
+        position: absolute
+        z-index: 0
+        top: 30%
+        left: 0
+        right: 0
+        bottom: 0
+        background: linear-gradient(180deg, rgba($color-background, 0) 14.79%, rgba($color-background, 1) 98.01%)

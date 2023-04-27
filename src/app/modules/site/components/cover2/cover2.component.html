@@ -1,0 +1,9 @@
+<section class="section-cover-2 min-h-[300px] flex justify-center items-end px-4 sm:px-8 pt-12" style="background-image: url({{imagesUrl}}/tr:w-1920,h-300/{{section.backgroundImage}})">
+    <div class="section-cover-2-bottom-gradient"></div>
+    <div class="section-cover-2-panel">
+        <ng-container *ngFor="let sectionItem of section?.items" [ngSwitch]="sectionItem.type">
+            <h1 *ngSwitchCase="'header'" class="section-cover-2-header">{{sectionItem.content}}</h1>
+            <h2 *ngSwitchCase="'paragraph'" class="section-cover-2-subheader mt-4">{{sectionItem.content}}</h2>
+        </ng-container>
+    </div>
+</section>
